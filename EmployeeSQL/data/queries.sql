@@ -51,3 +51,16 @@ inner join dept_emp as demp
 inner join departments as dep
 	on (demp.dept_no = dep.dept_no)
 	where dep.dept_no = 'd007';
+	
+	
+--List all employees in the Sales and Development departments, 
+--including their employee number, last name, first name, and department name.	
+create view sales_dev as
+select emp.emp_no, emp.last_name, emp.first_name, dep.dept_name
+from employees as emp
+inner join dept_emp as demp
+	on (emp.emp_no = demp.emp_no)
+inner join departments as dep
+	on (demp.dept_no = dep.dept_no)
+	where dep.dept_no = 'd007'
+	or dep.dept_no = 'd005';
