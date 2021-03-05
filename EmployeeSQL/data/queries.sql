@@ -64,3 +64,11 @@ inner join departments as dep
 	on (demp.dept_no = dep.dept_no)
 	where dep.dept_no = 'd007'
 	or dep.dept_no = 'd005';
+
+--In descending order, list the frequency count of employee last names, 
+--i.e., how many employees share each last name.
+create view last_names as
+SELECT last_name, count(last_name) as name_count
+from employees
+GROUP BY last_name
+ORDER BY name_count DESC;
