@@ -32,3 +32,22 @@ inner join dept_emp as de
 	on (emp.emp_no = de.emp_no)
 inner join departments as dep
 	on (de.dept_no = dep.dept_no);
+	
+--List first name, last name, and sex for employees whose 
+--first name is "Hercules" and last names begin with "B."
+create view employee_Hercules as
+select first_name, last_name, hire_date
+from employees
+where last_name like 'B%'
+and first_name = 'Hercules';
+
+--List all employees in the Sales department (d007), including their 
+--employee number, last name, first name, and department name.
+create view sales_employees as
+select emp.emp_no, emp.last_name, emp.first_name, dep.dept_name
+from employees as emp
+inner join dept_emp as demp
+	on (emp.emp_no = demp.emp_no)
+inner join departments as dep
+	on (demp.dept_no = dep.dept_no)
+	where dep.dept_no = 'd007';
