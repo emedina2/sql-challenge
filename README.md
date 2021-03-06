@@ -1,2 +1,2 @@
 # sql-challenge
-Queries are stored under data/queries.sql
+Queries, ERD & Schema are stored under 'data' folder
